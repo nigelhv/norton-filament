@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
 
             ->sidebarFullyCollapsibleOnDesktop()
             ->colors([
-                'primary' => Color::Indigo,
+                'primary' => Color::Violet,
                 'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
