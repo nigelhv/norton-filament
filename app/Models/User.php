@@ -82,4 +82,9 @@ class User extends Authenticatable  implements FilamentUser
     {
         return $this->belongsToMany(Activity::class);
     }
+
+    public function name()
+    {
+        return $this->first_name . " " . $this->surname;
+    }
 }
