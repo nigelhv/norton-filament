@@ -83,8 +83,13 @@ class User extends Authenticatable  implements FilamentUser
         return $this->belongsToMany(Activity::class);
     }
 
-    public function name()
+    public function setNameAttribute($value)
     {
-        return $this->first_name . " " . $this->surname;
+        $this->attributes['name'] = $value;
+
+        // Automatically split name into first_name and surname
+        $parts = explode(' ', $value, 2);
+        $this->attributes['first_name'] = $parts[0] ?? null;
+        $this->attributes['surname'] = $parts[1] ?? null;
     }
 }
