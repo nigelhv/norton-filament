@@ -47,7 +47,8 @@ class ActivityResource extends Resource
                 Tables\Columns\TextColumn::make('id')
                     ->searchable(),
                 TagsColumn::make('students.surname')
-                    ->label('Tags'),
+                    ->label('Tags')
+                    ->listWithLineBreaks(),
                 Tables\Columns\TextColumn::make('title')
                     ->wrap()->searchable(),
                 Tables\Columns\TextColumn::make('date')
@@ -56,7 +57,7 @@ class ActivityResource extends Resource
                 TagsColumn::make('users.surname')
                     ->label('Tags'),
 
-            ])
+            ])->persistSortInSession()
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
