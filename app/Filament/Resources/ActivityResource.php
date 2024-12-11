@@ -58,6 +58,8 @@ class ActivityResource extends Resource
                     ->label('Tags'),
 
             ])->persistSortInSession()
+            ->persistSearchInSession()
+            ->persistColumnSearchesInSession()
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
