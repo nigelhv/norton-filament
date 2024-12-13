@@ -53,6 +53,7 @@ class ActivityResource extends Resource
                     ->label('Subject'),
 
             ])->persistSortInSession()
+            ->defaultSort('date', 'desc')
             ->persistSearchInSession()
             ->persistColumnSearchesInSession()
             ->actions([

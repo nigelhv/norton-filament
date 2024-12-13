@@ -32,9 +32,9 @@ class AdminPanelProvider extends PanelProvider
             ->emailVerification()
             ->brandName("Norton College Activity Database")
 
-            ->sidebarFullyCollapsibleOnDesktop()
+            ->sidebarCollapsibleOnDesktop()
             ->colors([
-                'primary' => Color::Violet,
+                'primary' => Color::Indigo,
                 'gray' => Color::Slate,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
