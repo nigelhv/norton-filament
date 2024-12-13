@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use Filament\Tables;
 use App\Models\Activity;
 use Filament\Forms\Form;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
@@ -57,6 +58,12 @@ class ActivityResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
+            ])
+            ->filters([
+                SelectFilter::make('subjects')
+                    ->relationship('subjects', 'name'),
+                SelectFilter::make('students')
+                    ->relationship('students', 'surname')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
