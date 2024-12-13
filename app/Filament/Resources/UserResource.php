@@ -99,6 +99,7 @@ class UserResource extends Resource
             'index' => Pages\ListUsers::route('/'),
             'create' => Pages\CreateUser::route('/create'),
             'view' => ViewTeacher::route('/{record}'),
+            'settings' => Pages\Settings::route('/settings'),
         ];
     }
 }
