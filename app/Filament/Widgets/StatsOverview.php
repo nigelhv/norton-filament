@@ -15,10 +15,10 @@ class StatsOverview extends BaseWidget
         return [
             Stat::make('Total activities', Activity::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
-            Stat::make('Students', Student::count())
+            Stat::make('Total students', Student::count())
 
                 ->descriptionIcon('heroicon-m-arrow-trending-down'),
-            Stat::make('Subjects', Subject::count())
+            Stat::make('Total subjects', Subject::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
         ];
     }
