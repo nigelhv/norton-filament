@@ -22,18 +22,7 @@ class ActivityRelationManager extends RelationManager
     public function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('description')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DatePicker::make('date')
-                    ->required(),
-                Forms\Components\TextInput::make('location_id')
-                    ->required(),
-            ]);
+            ->schema(Activity::getForm);
     }
 
     public function table(Table $table): Table
@@ -42,6 +31,9 @@ class ActivityRelationManager extends RelationManager
             ->recordTitleAttribute('title')
             ->columns([
                 Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('date')
+                    ->since()
+                    ->dateTooltip(),
             ])
             ->filters([
                 //

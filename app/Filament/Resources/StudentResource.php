@@ -16,6 +16,9 @@ use Filament\Resources\RelationManagers\RelationManager;
 use App\Filament\Resources\StudentResource\RelationManagers;
 use App\Filament\Resources\StudentResource\Pages\ViewStudent;
 use App\Filament\Resources\StudentResource\RelationManagers\ActivityRelationManager;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Support\Enums\FontWeight;
 
 class StudentResource extends Resource
 {
@@ -43,8 +46,10 @@ class StudentResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('surname')->searchable(),
-                Tables\Columns\TextColumn::make('first_name')->searchable(),
+
+                TextColumn::make('surname')->searchable()->weight(FontWeight::Bold)->grow(false),
+                TextColumn::make('first_name')->searchable(),
+                TextColumn::make('created_at')->toggleable(isToggledHiddenByDefault: true),
 
             ])
             ->defaultSort('surname')

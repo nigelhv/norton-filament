@@ -24,14 +24,14 @@ class StudentsRelationManager extends RelationManager
         return $form
             ->schema([
                 Forms\Components\TextInput::make('surname')
-                ->required()
-                ->maxLength(255),
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('first_name')
                     ->required()
                     ->maxLength(255),
-                    Forms\Components\TextInput::make('location_id')
+                Forms\Components\TextInput::make('location_id')
                     ->required(),
-                    Forms\Components\TextInput::make('on_roll')
+                Forms\Components\TextInput::make('on_roll')
                     ->required(),
             ]);
     }

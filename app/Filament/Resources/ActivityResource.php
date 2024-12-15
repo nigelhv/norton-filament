@@ -45,12 +45,16 @@ class ActivityResource extends Resource
                     ->wrap()->searchable(),
                 Tables\Columns\TextColumn::make('date')
                     ->date()
+                    ->since()
+                    ->dateTooltip()
                     ->sortable()
                     ->searchable(),
                 TagsColumn::make('users.surname')
-                    ->label('Teacher'),
+                    ->label('Teacher')
+                    ->toggleable(isToggledHiddenByDefault: true),
                 TagsColumn::make('subjects.name')
-                    ->label('Subject'),
+                    ->label('Subject')
+                    ->toggleable(isToggledHiddenByDefault: true),
 
             ])->persistSortInSession()
             ->defaultSort('date', 'desc')

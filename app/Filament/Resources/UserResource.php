@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Filament\Resources\UserResource\Pages\ViewTeacher;
 use App\Filament\Resources\StudentResource\RelationManagers\ActivityRelationManager;
+use Filament\Support\Enums\FontWeight;
 
 class UserResource extends Resource
 {
@@ -50,13 +51,13 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('id')->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('surname')
-                    ->searchable(),
+                    ->searchable()->weight(FontWeight::Bold),
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('location_id')
-                    ->searchable(),
+                    ->searchable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 TernaryFilter::make('surname')
