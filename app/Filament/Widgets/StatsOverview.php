@@ -23,7 +23,7 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
             Stat::make('Total teachers', User::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
-            Stat::make('In orperation since', Activity::orderBy('created_at')->limit(1)->first()->created_at->since())
+            Stat::make('In orperation since', Activity::orderBy('date')->limit(1)->first()->date)
 
         ];
     }
