@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\User;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Activity;
@@ -20,6 +21,10 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-arrow-trending-down'),
             Stat::make('Total subjects', Subject::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
+            Stat::make('Total teachers', User::count())
+                ->descriptionIcon('heroicon-m-arrow-trending-up'),
+            Stat::make('In orperation since', Activity::orderBy('created_at')->limit(1)->first()->created_at->since())
+
         ];
     }
 }
