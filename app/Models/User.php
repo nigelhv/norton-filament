@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
-use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Laravel\Sanctum\HasApiTokens;
+use App\Models\Scopes\LocationScope;
+use Laravel\Jetstream\HasProfilePhoto;
+use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
 
+#[ScopedBy([LocationScope::class])]
 class User extends Authenticatable  implements FilamentUser
 {
     use HasApiTokens;
@@ -91,5 +94,10 @@ class User extends Authenticatable  implements FilamentUser
         $parts = explode(' ', $value, 2);
         $this->attributes['first_name'] = $parts[0] ?? null;
         $this->attributes['surname'] = $parts[1] ?? null;
+    }
+
+    protected static function booted(): void
+    {
+        static::addGlobalScope(new LocationScope);
     }
 }

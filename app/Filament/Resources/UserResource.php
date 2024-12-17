@@ -56,7 +56,7 @@ class UserResource extends Resource
                     ->searchable()->weight(FontWeight::Bold),
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('location_id')
+                Tables\Columns\TextColumn::make('location.location')
                     ->searchable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([

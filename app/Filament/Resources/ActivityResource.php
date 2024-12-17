@@ -55,7 +55,8 @@ class ActivityResource extends Resource
                 TagsColumn::make('subjects.name')
                     ->label('Subject')
                     ->toggleable(isToggledHiddenByDefault: true),
-
+                Tables\Columns\TextColumn::make('location.location')
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])->persistSortInSession()
             ->defaultSort('date', 'desc')
             ->persistSearchInSession()
