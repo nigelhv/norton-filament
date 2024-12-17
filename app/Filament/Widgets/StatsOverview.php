@@ -16,8 +16,7 @@ class StatsOverview extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Location', Location::find(session()->get('location_id'))->location)
-                ->descriptionIcon('heroicon-m-arrow-trending-up'),
+
             Stat::make('Total activities', Activity::count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
             Stat::make('Total students', Student::count())
