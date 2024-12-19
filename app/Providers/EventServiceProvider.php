@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\ServiceProvider;
+use App\Listeners\SetLocationIdInSession;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,7 +19,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
 
         Login::class => [
-            SetTenantIdInSession::class,
+            SetLocationIdInSession::class,
         ]
 
     ];
