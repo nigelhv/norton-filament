@@ -43,7 +43,14 @@ class UserResource extends Resource
                     ->maxLength(100),
                 Forms\Components\TextInput::make('location_id')
                     ->required()
+                    ->dehydrated(false)
                     ->maxLength(100),
+                Forms\Components\TextInput::make('email')
+                    ->required()
+                    ->maxLength(100),
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->dehydrated(false),
             ]);
     }
 

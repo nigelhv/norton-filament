@@ -30,7 +30,7 @@ class StatsOverview extends BaseWidget
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
             Stat::make('Total Tewkesbury teachers', User::where('location_id', 2)->count())
                 ->descriptionIcon('heroicon-m-arrow-trending-up'),
-            Stat::make('In orperation since', Activity::orderBy('date')->limit(1)->first()->date)
+            Stat::make('In operation since', Activity::orderBy('date')->limit(1)->first()->date)
 
         ];
     }
