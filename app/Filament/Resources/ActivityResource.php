@@ -78,18 +78,18 @@ class ActivityResource extends Resource
             ]);
     }
 
-    public static function infolist(Infolist $infolist): Infolist
-    {
-        return $infolist
-            ->schema([
-                Section::make('Activity Information')
-                    ->columns(4)
-                    ->schema([
-                        TextEntry::make('title'),
-                        TextEntry::make('description'),
-                    ])->columns(1),
-            ]);
-    }
+    // public static function infolist(Infolist $infolist): Infolist
+    // {
+    //     return $infolist
+    //         ->schema([
+    //             Section::make('Activity Information')
+    //                 ->columns(4)
+    //                 ->schema([
+    //                     TextEntry::make('title'),
+    //                     TextEntry::make('description'),
+    //                 ])->columns(1),
+    //         ]);
+    // }
 
     public static function getRelations(): array
     {

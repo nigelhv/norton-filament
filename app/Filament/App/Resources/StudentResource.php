@@ -2,16 +2,17 @@
 
 namespace App\Filament\App\Resources;
 
-use App\Filament\App\Resources\StudentResource\Pages;
-use App\Filament\App\Resources\StudentResource\RelationManagers;
-use App\Models\Student;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Student;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Form\Components\TextInput;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\App\Resources\StudentResource\Pages;
+use App\Filament\App\Resources\StudentResource\RelationManagers;
 
 class StudentResource extends Resource
 {
@@ -23,6 +24,8 @@ class StudentResource extends Resource
     {
         return $form
             ->schema([
+                TextInput::make('location'),
+                TextInput::make('date'),
                 //
             ]);
     }

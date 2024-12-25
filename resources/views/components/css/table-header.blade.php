@@ -1,0 +1,11 @@
+dark:bg-slate-800
+dark:text-white
+text-black
+bg-slate-200
+font-bold
+border-t
+border-l
+border-r
+border-slate-400
+p-4
+rounded-t

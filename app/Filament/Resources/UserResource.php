@@ -9,6 +9,8 @@ use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use App\Tables\Columns\UserTotals;
+use Filament\Support\Enums\FontWeight;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Infolists\Components\Section;
 use Filament\Tables\Filters\TernaryFilter;
@@ -18,7 +20,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Filament\Resources\UserResource\Pages\ViewTeacher;
 use App\Filament\Resources\StudentResource\RelationManagers\ActivityRelationManager;
-use Filament\Support\Enums\FontWeight;
 
 class UserResource extends Resource
 {
@@ -63,6 +64,7 @@ class UserResource extends Resource
                     ->searchable()->weight(FontWeight::Bold),
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
+                UserTotals::make('total'),
                 Tables\Columns\TextColumn::make('location.location')
                     ->searchable()->toggleable(isToggledHiddenByDefault: true),
             ])

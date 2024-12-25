@@ -1,0 +1,12 @@
+rounded
+text-slate-700
+dark:text-slate-300
+dark:hover:bg-slate-700
+dark:hover:text-white
+hover:text-black
+hover:text-black
+hover:border-blue-700
+hover:bg-slate-100
+sm:my-1
+sm:py-1
+sm:px-2

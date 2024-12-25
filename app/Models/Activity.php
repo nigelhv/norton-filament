@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\CheckboxList;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -132,6 +133,7 @@ class Activity extends Model
                 ->helperText('A brief description')
                 ->maxLength(255),
             Select::make('users')
+                ->preload()
                 ->multiple()
                 ->relationship('users', 'surname')
                 ->required()
@@ -143,16 +145,21 @@ class Activity extends Model
                 ->required()
                 ->native(false),
             Select::make('location_id')
+                ->preload()
                 ->relationship('location', 'location'),
             Select::make('students')
+                ->preload()
                 ->multiple()
                 ->relationship('students', 'surname')
                 ->required()
-                ->helperText('Needs to pick from student list'),
-            Select::make('subjects')
-                ->multiple()
+                ->createOptionForm(Student::getForm())
+                ->editOptionForm(Student::getForm())
+                ->helperText('Pick from student list'),
+            CheckboxList::make('subjects')
                 ->relationship('subjects', 'name')
                 ->required()
+                ->columns(3)
+                ->searchable()
                 ->helperText('Needs to pick from subject list'),
         ];
     }

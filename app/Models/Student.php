@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
+use Filament\Forms;
 use App\Models\MyDate;
 use App\Models\Activity;
 use App\Models\Scopes\StudentScope;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\RichEditor;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -547,8 +553,7 @@ class Student extends Model
     public function activitiesOnADayKey($date = null)
     {
         if (is_null($date)) {
-            $date = today()->toDateString();
-            ;
+            $date = today()->toDateString();;
         }
         return $this->id . ':' . $date . ':activities';
     }
@@ -621,21 +626,36 @@ class Student extends Model
     public function nextActivity($activity)
     {
         $activities = $this->activities;
-
     }
 
-    public function previousActivity($activity)
-    {
+    public function previousActivity($activity) {}
 
-    }
-
-    public function activitySequenceNumber($activity_id)
-    {
-
-    }
+    public function activitySequenceNumber($activity_id) {}
 
     public function paginationKey($activity_id)
     {
         return ($this->activities->where('id', $activity_id)->keys()->first()) + 2;
+    }
+
+    // public static function getForm()
+    // {
+    //     return [
+
+    //         Textinput::make('title')
+    //             ->required()
+    //             ->helperText('A brief description')
+    //             ->maxLength(255),
+
+    //     ];
+    // }
+
+    public static function getForm(): array
+    {
+        return [
+            Textarea::make('surname'),
+            Textarea::make('first_name'),
+            // Forms\Components\TextInput::make('location_id')->numeric(),
+            Toggle::make('on_roll')
+        ];
     }
 }

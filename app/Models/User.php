@@ -7,6 +7,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Scopes\LocationScope;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\HasName;
 use Filament\Models\Contracts\FilamentUser;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
@@ -14,7 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 #[ScopedBy([LocationScope::class])]
-class User extends Authenticatable  implements FilamentUser
+class User extends Authenticatable  implements FilamentUser, HasName
 {
     use HasApiTokens;
 
@@ -61,6 +62,12 @@ class User extends Authenticatable  implements FilamentUser
      *
      * @return array<string, string>
      */
+
+    public function getFilamentName(): string
+    {
+        return "{$this->first_name} {$this->surname}";
+    }
+
 
     public function canAccessPanel(Panel $panel): bool
     {

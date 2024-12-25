@@ -1,0 +1,11 @@
+dark:bg-green-800
+bg-teal-600
+text-teal-700
+w-[25px]
+h-[25px]
+rounded-full
+text-white
+align-center
+flex
+flex-row
+justify-center

@@ -9,10 +9,13 @@ use App\Models\Activity;
 use App\Models\Location;
 use Illuminate\Support\Facades\Auth;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Filament\Widgets\Concerns\InteractsWithPageFilters;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 
 class StatsOverview extends BaseWidget
 {
+
+    use InteractsWithPageFilters;
     protected function getStats(): array
     {
         return [

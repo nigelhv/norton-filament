@@ -34,12 +34,7 @@ class StudentResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                Forms\Components\Textarea::make('surname'),
-                Forms\Components\Textarea::make('first_name'),
-                Forms\Components\TextInput::make('location_id')->numeric(),
-                Forms\Components\TextInput::make('on_roll'),
-            ]);
+            ->schema(Student::getForm());
     }
 
     public static function table(Table $table): Table
