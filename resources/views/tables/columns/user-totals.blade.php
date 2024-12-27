@@ -1,3 +1,3 @@
 <div>
-    {{ $getRecord()->activities->count() }}
+    {{ $getRecord()->activities()->count() }}
 </div>

@@ -7,6 +7,7 @@ use App\Models\Activity;
 use Filament\Forms\Form;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\Layout\Split;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables\Columns\TagsColumn;

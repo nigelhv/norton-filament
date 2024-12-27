@@ -23,6 +23,22 @@ use App\Filament\Resources\StudentResource\RelationManagers\ActivityRelationMana
 
 class UserResource extends Resource
 {
+
+    public $location_id;
+    public $password;
+    public $systemadmin;
+    public $superuser;
+    public $staff;
+    public $SLT;
+    public $admin;
+
+    protected $rules = [
+        'systemadmin' => 'required',
+        'staff' => 'required',
+        'SLT' => 'required',
+        'admin' => 'required',
+        'superuser' => 'required'
+    ];
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-user-circle';
@@ -58,13 +74,14 @@ class UserResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->paginated(false)
             ->columns([
                 Tables\Columns\TextColumn::make('id')->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('surname')
                     ->searchable()->weight(FontWeight::Bold),
                 Tables\Columns\TextColumn::make('first_name')
                     ->searchable(),
-                UserTotals::make('total'),
+                UserTotals::make('count')->label('how many')->sortable(),
                 Tables\Columns\TextColumn::make('location.location')
                     ->searchable()->toggleable(isToggledHiddenByDefault: true),
             ])

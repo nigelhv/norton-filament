@@ -1,16 +1,16 @@
 <div>
     <flux:heading size="xl">RPCP</flux:heading>
     <flux:subheading>Roles and Permission Page</flux:subheading>
-    <div class=" p-4 my-8 rounded max-w-[1400px] m-auto dark:text-slate-200">
+    <div class=" p-4 my-8 rounded max-w-[1400px] m-auto dark:text-slate-200 ">
         <div class="<x-css.panel />">
             <div class="lg:grid sm:grid-cols-4 ">
                 <!-- Roles -->
-                <div class="px-6  mt-4 pt-4">
+                <div class="px-6 pt-4 mt-4 ">
                     <form wire:submit.prevent="add_role">
-                        <div class="text-xl mb-6 font-bold dark:text-white">Roles</div>
+                        <div class="mb-6 text-xl font-bold dark:text-white">Roles</div>
                         <div>
                             @error('role_name')
-                                <span class="error text-xs text-red-500">{{ $message }}</span>
+                                <span class="text-xs text-red-500 error">{{ $message }}</span>
                             @enderror
                         </div>
 
@@ -38,7 +38,7 @@
                                     {{-- <div class="col-span-4">{{ $role->guard_name }}</div> --}}
                                     <div x-data="{ roleDialogueOpen: false }" class="flex justify-center">
                                         <span x-on:click="roleDialogueOpen = true"
-                                            class="cursor-pointer rounded-full  flex justify-center hover:text-black hover:bg-slate-200 px-2 text-slate-400">
+                                            class="flex justify-center px-2 rounded-full cursor-pointer hover:text-black hover:bg-slate-200 text-slate-400">
                                             x
                                         </span>
 
@@ -55,7 +55,7 @@
                                             <!-- Panel -->
                                             <div x-show="roleDialogueOpen" x-transition
                                                 x-on:click="roleDialogueOpen = false"
-                                                class="relative flex min-h-screen items-center justify-center p-4">
+                                                class="relative flex items-center justify-center min-h-screen p-4">
                                                 <div x-on:click.stop x-trap.noscroll.inert="roleDialogueOpen"
                                                     class="relative w-full max-w-2xl overflow-y-auto rounded <x-css.modal-panel />  p-12 shadow-lg">
                                                     <!-- Title -->
@@ -72,7 +72,7 @@
 
                                                     <!-- Buttons -->
 
-                                                    <div class="mt-8 flex space-x-2">
+                                                    <div class="flex mt-8 space-x-2">
                                                         <button wire:click="delete_role({{ $role->id }})"
                                                             x-on:click="roleDialogueOpen=false"
                                                             class="rounded border border-gray-200 dark:text-slate-700 bg-white px-5 py-2.5">
@@ -96,12 +96,12 @@
                 </div>
                 <!-- Permissions -->
                 <div
-                    class="lg:border-l lg:border-r  border-l-0 border-t border-b lg:border-t-0 lg:border-b-0 border-slate-300 px-6   mt-4 pt-4">
+                    class="px-6 pt-4 mt-4 border-t border-b border-l-0 lg:border-l lg:border-r lg:border-t-0 lg:border-b-0 border-slate-300">
                     <form wire:submit.prevent="add_permission">
-                        <div class="text-xl mb-6 font-bold dark:text-white">Permissions</div>
+                        <div class="mb-6 text-xl font-bold dark:text-white">Permissions</div>
                         <div>
                             @error('permission_name')
-                                <span class="error text-xs text-red-500">{{ $message }}</span>
+                                <span class="text-xs text-red-500 error">{{ $message }}</span>
                             @enderror
                         </div>
                         <input wire:model="permission_name" placeholder="permission"
@@ -113,10 +113,10 @@
                     <input wire:model="permissionSearch2" class="<x-css.form-input /> border-slate-400 border p-2 mt-2"
                         placeholder="Search permissions">
                     <div class="">
-                        <div class=" text-slate-600 pt-4 dark:text-slate-200">
+                        <div class="pt-4 text-slate-600 dark:text-slate-200">
                             <div class="<x-css.table-column-headings /> pl-2 grid grid-cols-4 pt-4  my-3 ">
                                 {{-- <div></div> --}}
-                                <div class="col-span-3  dark:text-white">Permission</div>
+                                <div class="col-span-3 dark:text-white">Permission</div>
                                 <div></div>
                             </div>
                             @foreach ($permissions as $permission)
@@ -126,7 +126,7 @@
                                     {{-- <div class="col-span-4">{{ $permission->guard_name }}</div> --}}
                                     <div x-data="{ permissionDialogueOpen: false }" class="flex justify-center">
                                         <span x-on:click="permissionDialogueOpen = true"
-                                            class="cursor-pointer rounded-full  flex justify-center hover:text-black hover:bg-slate-200 px-2 text-slate-400">
+                                            class="flex justify-center px-2 rounded-full cursor-pointer hover:text-black hover:bg-slate-200 text-slate-400">
                                             x
                                         </span>
 
@@ -143,7 +143,7 @@
                                             <!-- Panel -->
                                             <div x-show="permissionDialogueOpen" x-transition
                                                 x-on:click="permissionDialogueOpen = false"
-                                                class="relative flex min-h-screen items-center justify-center p-4">
+                                                class="relative flex items-center justify-center min-h-screen p-4">
                                                 <div x-on:click.stop x-trap.noscroll.inert="permissionDialogueOpen"
                                                     class="relative w-full max-w-2xl overflow-y-auto rounded <x-css.modal-panel />  p-12 shadow-lg">
                                                     <!-- Title -->
@@ -157,7 +157,7 @@
                                                         {{ $permission->name }}?
                                                         <!-- Buttons -->
 
-                                                    <div class="mt-8 flex space-x-2">
+                                                    <div class="flex mt-8 space-x-2">
                                                         <button wire:click="delete_permission({{ $permission->id }})"
                                                             x-on:click="permissionDialogueOpen=false"
                                                             class="rounded border border-gray-200 dark:text-slate-700 bg-white px-5 py-2.5">
@@ -181,10 +181,10 @@
                 </div>
 
                 <!-- Associations -->
-                <div class="col-span-2 flex flex-col  pl-6  mt-4 pt-4 ">
-                    <div class=" w-full">
+                <div class="flex flex-col col-span-2 pt-4 pl-6 mt-4 ">
+                    <div class="w-full ">
                         <form wire:submit.prevent="associate">
-                            <div class="text-xl mb-6 font-bold dark:text-white">Associate Roles with Permissions</div>
+                            <div class="mb-6 text-xl font-bold dark:text-white">Associate Roles with Permissions</div>
                             <select
                                 class="<x-css.form-input /> w-48 appearance-none   border-slate-400 mr-2 dark:placeholder-red-400 placeholder:text-slate-400"
                                 wire:model="assoc_role">
@@ -212,7 +212,7 @@
 
 
                     </div>
-                    <div class=" text-slate-600 pt-4 dark:text-slate-200">
+                    <div class="pt-4 text-slate-600 dark:text-slate-200">
                         <div class="<x-css.table-column-headings />pl-2 grid grid-cols-9 pt-4  my-3 ">
                             {{-- <div>ID</div> --}}
                             <div class="col-span-3 dark:text-white">Role</div>
@@ -233,7 +233,7 @@
                                         {{-- <div>{{ $permission->guard_name }}</div> --}}
                                         <div x-data="{ assocDialogueOpen: false }" class="flex justify-center">
                                             <span x-on:click="assocDialogueOpen = true"
-                                                class="cursor-pointer rounded-full  flex justify-center hover:text-black hover:bg-slate-200 px-2 text-slate-400">
+                                                class="flex justify-center px-2 rounded-full cursor-pointer hover:text-black hover:bg-slate-200 text-slate-400">
                                                 x
                                             </span>
 
@@ -250,7 +250,7 @@
                                                 <!-- Panel -->
                                                 <div x-show="assocDialogueOpen" x-transition
                                                     x-on:click="assocDialogueOpen = false"
-                                                    class="relative flex min-h-screen items-center justify-center p-4">
+                                                    class="relative flex items-center justify-center min-h-screen p-4">
                                                     <div x-on:click.stop x-trap.noscroll.inert="assocDialogueOpen"
                                                         class="relative w-full max-w-2xl overflow-y-auto rounded <x-css.modal-panel />  p-12 shadow-lg">
                                                         <!-- Title -->
@@ -269,7 +269,7 @@
 
                                                         <!-- Buttons -->
 
-                                                        <div class="mt-8 flex space-x-2">
+                                                        <div class="flex mt-8 space-x-2">
                                                             <button
                                                                 wire:click="dissociate( '{{ $role->name }}' , '{{ $permission->name }}' )"
                                                                 x-on:click="assocDialogueOpen=false"

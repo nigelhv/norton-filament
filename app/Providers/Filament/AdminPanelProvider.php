@@ -36,7 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ->emailVerification()
             ->brandName("Norton College Activities Database")
             ->brandLogo('/images/logo.png')
-            ->brandLogoHeight('sm')
+            ->brandLogoHeight('medium')
 
             ->maxContentWidth(MaxWidth::Full)
             ->sidebarCollapsibleOnDesktop()
