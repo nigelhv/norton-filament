@@ -7,7 +7,7 @@ use App\Models\MyDate;
 use App\Models\Activity;
 use App\Models\Scopes\StudentScope;
 use Illuminate\Database\Eloquent\Model;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
