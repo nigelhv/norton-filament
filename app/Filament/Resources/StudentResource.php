@@ -44,7 +44,7 @@ class StudentResource extends Resource
 
                 TextColumn::make('surname')->searchable()->weight(FontWeight::Bold)->grow(false),
                 TextColumn::make('first_name')->searchable(),
-                TextColumn::make('location.location')->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('location.location'),
                 TextColumn::make('created_at')->toggleable(isToggledHiddenByDefault: true),
 
             ])

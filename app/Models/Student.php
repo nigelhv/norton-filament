@@ -654,7 +654,8 @@ class Student extends Model
         return [
             Textarea::make('surname'),
             Textarea::make('first_name'),
-            // Forms\Components\TextInput::make('location_id')->numeric(),
+            Forms\Components\Select::make('location_id')
+                ->relationship('location', 'location'),
             Toggle::make('on_roll')
         ];
     }
