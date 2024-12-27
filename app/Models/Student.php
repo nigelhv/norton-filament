@@ -656,7 +656,7 @@ class Student extends Model
             Textarea::make('first_name'),
             Forms\Components\Select::make('location_id')
                 ->relationship('location', 'location'),
-            Toggle::make('on_roll')
+            Toggle::make('on_roll')->default('selected')
         ];
     }
 }
